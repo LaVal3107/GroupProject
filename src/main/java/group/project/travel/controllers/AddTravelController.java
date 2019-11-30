@@ -51,7 +51,7 @@ public class AddTravelController {
         travel.setReservedSeats(0);
 
         travelRepository.save(travel);
-        return "redirect:/add";
+        return "redirect:/show";
 
     }
 }
