@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.time.LocalDate;
 
 @Controller
-@RequestMapping("/add")
+@RequestMapping("/travels/add")
 public class AddTravelController {
 
     private final TravelRepository travelRepository;
@@ -51,7 +51,7 @@ public class AddTravelController {
         travel.setReservedSeats(0);
 
         travelRepository.save(travel);
-        return "redirect:/show";
+        return "redirect:/add";
 
     }
 }

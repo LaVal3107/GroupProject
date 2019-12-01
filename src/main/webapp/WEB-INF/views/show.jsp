@@ -26,7 +26,7 @@
 <body>
 <div class="row" style="margin-top: 40px; margin-bottom: 10px">
     <div class="col-1"></div>
-    <div class="col-6"><h2>Lista ogłoszeń</h2></div>
+    <div class="col-6"><h2>Lista wycieczek</h2></div>
     <div class="col-5"></div>
 </div>
 

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/show")
+@RequestMapping("/travels")
 public class ShowTravelController {
 
   private final TravelRepository travelRepository;
