@@ -23,7 +23,7 @@ public class ShowTravelController {
     public String prepareShowTravel(Model model){
       List<Travel> allTravels = travelRepository.findAll();
       model.addAttribute("travels", allTravels);
-      return "/WEB-INF/views/show.jsp";
+      return "/WEB-INF/views/showTravels.jsp";
   }
 
 }

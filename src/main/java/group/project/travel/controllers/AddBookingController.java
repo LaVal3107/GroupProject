@@ -30,7 +30,7 @@ public class AddBookingController {
         model.addAttribute("travels", allTravels);
         model.addAttribute("selectedTravelId", allTravels.get(0).getId());
         model.addAttribute("availableSeats", allTravels.get(0).getAvailableSeats());
-        return "/WEB-INF/views/booking.jsp";
+        return "/WEB-INF/views/addBooking.jsp";
     }
 
     @PostMapping
@@ -40,7 +40,7 @@ public class AddBookingController {
         Travel selectedTravel = travelRepository.getOne(travelId);
         model.addAttribute("selectedTravelId", selectedTravel.getId());
         model.addAttribute("availableSeats", selectedTravel.getAvailableSeats());
-        return "/WEB-INF/views/booking.jsp";
+        return "/WEB-INF/views/addBooking.jsp";
     }
 
     @PostMapping(params = "reserved")

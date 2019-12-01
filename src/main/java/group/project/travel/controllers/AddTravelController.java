@@ -24,7 +24,7 @@ public class AddTravelController {
 
     @GetMapping
     public String preparepAddTravel() {
-        return "/WEB-INF/views/add.jsp";
+        return "/WEB-INF/views/addTravel.jsp";
     }
 
     @PostMapping
