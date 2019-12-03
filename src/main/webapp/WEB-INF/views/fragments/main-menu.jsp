@@ -19,8 +19,7 @@
             <a class="nav-item nav-link" href="/travels">Lista wycieczek</a>
             <a class="nav-item nav-link" href="/booking/add">Dodaj rezerwację</a>
             <a class="nav-item nav-link" href="/bookings">Lista rezerwacji</a>
-            <a class="nav-item nav-link" href="/registration">Lista rezerwacji</a>
-            <strong> <a class="nav-item nav-link" href="/registration">Zaaloguj się</a> </strong>
+             <strong> <a class="nav-item nav-link" href="/login">Zaaloguj się</a> </strong>
             <strong> <a class="nav-item nav-link" href="/registration">Zarejestruj się</a> </strong>
         </div>
     </div>
