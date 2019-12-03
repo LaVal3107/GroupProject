@@ -64,7 +64,7 @@ public class AddBookingController {
 
         travelRepository.save(travel);
         bookingRepository.save(booking);
-        return "redirect:/booking";
+        return "redirect:/booking/add";
 
     }
 }

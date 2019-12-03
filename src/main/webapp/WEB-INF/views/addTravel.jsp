@@ -22,6 +22,7 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
+<jsp:include page="fragments/main-menu.jsp"/>
 <div class="container">
     <div class="row" style="margin-top: 40px">
         <div class="col-1"></div>
@@ -32,7 +33,7 @@
     <div class="row">
         <div class="col-1"></div>
         <div class="col-6">
-            <form method="post" action="/add">
+            <form method="post" action="/travels/add">
                 <div class="form-group">
                     <label for="name">Nazwa wycieczki</label>
                     <input type="text" required name="name" id="name" class="form-control"

@@ -25,38 +25,40 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="row" style="margin-top: 40px; margin-bottom: 10px">
-    <div class="col-1"></div>
-    <div class="col-6"><h2>Lista zarezerwowanych wycieczek</h2></div>
-    <div class="col-5"></div>
-</div>
-
-<div class="row">
-    <div class="col-12" style="padding-bottom: 20px">
-        <table class="table">
-            <tr>
-                <th>Lp.</th>
-                <th>Nazwa wycieczki</th>
-                <th>Ilość zarezerw. miejsc</th>
-                <th>Imię klienta</th>
-                <th>Nazwisko klienta</th>
-                <th>Numer telefonu</th>
-                <th>Adres e-mail</th>
-            </tr>
-            <c:forEach items="${bookings}" var= "booking" varStatus="stat">
-                <tr>
-                    <td>${stat.count}</td>
-                    <td><b>${booking.travel.name}</b></td>
-                    <td>${booking.seatsAmount}</td>
-                    <td>${booking.clientName}</td>
-                    <td>${booking.clientSurname}</td>
-                    <td>${booking.clientPhoneNumber}</td>
-                    <td>${booking.clientEmail}</td>
-                </tr>
-            </c:forEach>
-        </table>
+<jsp:include page="fragments/main-menu.jsp"/>
+<div class="container">
+    <div class="row" style="margin-top: 40px; margin-bottom: 10px">
+        <div class="col-1"></div>
+        <div class="col-6"><h2>Lista zarezerwowanych wycieczek</h2></div>
+        <div class="col-5"></div>
     </div>
-</div>
+
+    <div class="row">
+        <div class="col-12" style="padding-bottom: 20px">
+            <table class="table">
+                <tr>
+                    <th>Lp.</th>
+                    <th>Nazwa wycieczki</th>
+                    <th>Ilość zarezerw. miejsc</th>
+                    <th>Imię klienta</th>
+                    <th>Nazwisko klienta</th>
+                    <th>Numer telefonu</th>
+                    <th>Adres e-mail</th>
+                </tr>
+                <c:forEach items="${bookings}" var="booking" varStatus="stat">
+                    <tr>
+                        <td>${stat.count}</td>
+                        <td><b>${booking.travel.name}</b></td>
+                        <td>${booking.seatsAmount}</td>
+                        <td>${booking.clientName}</td>
+                        <td>${booking.clientSurname}</td>
+                        <td>${booking.clientPhoneNumber}</td>
+                        <td>${booking.clientEmail}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+    </div>
 </div>
 
 </body>

@@ -25,6 +25,7 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
+<jsp:include page="fragments/main-menu.jsp"/>
 <div class="container">
     <div class="row" style="margin-top: 40px">
         <div class="col-1"></div>
@@ -35,7 +36,7 @@
     <div class="row">
         <div class="col-1"></div>
         <div class="col-6">
-            <form method="post" action="/booking">
+            <form method="post" action="/booking/add">
                 <div class="form-group">
                     <label for="travelId">Nazwa wycieczki</label>
                     <select name="travelId" class="form-control" id="travelId" onchange="this.form.submit()">
