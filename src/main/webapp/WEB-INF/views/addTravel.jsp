@@ -1,3 +1,4 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Valentina
@@ -77,6 +78,7 @@
                 </div>
 
                 <button class="btn btn-primary" type="submit">Dodaj</button>
+                <sec:csrfInput/>
             </form>
         </div>
         <div class="col-5"></div>

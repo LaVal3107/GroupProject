@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Valentina
@@ -79,6 +80,7 @@
                            placeholder="Podaj adres e-mail"/>
                 </div>
                 <button class="btn btn-primary" type="submit" name="reserved">Rezerwuj</button>
+                <sec:csrfInput/>
             </form>
         </div>
         <div class="col-5"></div>

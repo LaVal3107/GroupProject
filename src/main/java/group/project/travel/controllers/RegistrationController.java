@@ -4,6 +4,7 @@ import group.project.travel.entities.User;
 import group.project.travel.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,12 +18,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class RegistrationController {
 
     private final UserRepository userRepository;
-
-  //  private static final Logger log = LoggerFactory.getLogger(RegistrationController.java);
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public RegistrationController(UserRepository userRepository) {
+    public RegistrationController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping
@@ -38,16 +39,14 @@ public class RegistrationController {
                                           String lastName) {
         User user = new User();
         user.setUsername(username);
-        user.setPassword(password);
+        String encodedPassword = passwordEncoder.encode(password);
+        user.setPassword(encodedPassword);
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setActive(true);
 
         userRepository.save(user);
-        return "/";
-
-       // log.info("Zapisany użytkownik: "+  user);
-        // return "redirect:/index.html";
+        return "redirect:/login";
 
     }
 }

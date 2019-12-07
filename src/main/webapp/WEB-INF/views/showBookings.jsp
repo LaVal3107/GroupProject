@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Valentina
@@ -44,6 +45,7 @@
                     <th>Nazwisko klienta</th>
                     <th>Numer telefonu</th>
                     <th>Adres e-mail</th>
+                    <th>    </th>
                 </tr>
                 <c:forEach items="${bookings}" var="booking" varStatus="stat">
                     <tr>
@@ -54,6 +56,12 @@
                         <td>${booking.clientSurname}</td>
                         <td>${booking.clientPhoneNumber}</td>
                         <td>${booking.clientEmail}</td>
+                        <td>
+                            <form class="form-inline mr-2 mt-3" method="get" action="/deleteBooking">
+                            <button class="btn btn-outline-primary" type="submit"> Usuń </button>
+                            <sec:csrfInput/>
+                        </form></td>
+
                     </tr>
                 </c:forEach>
             </table>

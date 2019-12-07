@@ -1,3 +1,4 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Valentina
@@ -15,12 +16,34 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link" href="/travels/add">Dodaj wycieczkę</a>
-            <a class="nav-item nav-link" href="/travels">Lista wycieczek</a>
-            <a class="nav-item nav-link" href="/booking/add">Dodaj rezerwację</a>
-            <a class="nav-item nav-link" href="/bookings">Lista rezerwacji</a>
-             <strong> <a class="nav-item nav-link" href="/login">Zaaloguj się</a> </strong>
-            <strong> <a class="nav-item nav-link" href="/registration">Zarejestruj się</a> </strong>
+            <sec:authorize access="isAuthenticated()">
+                <%-- Treść strony tylko dla zalogowanych użytkowników --%>
+
+                <a class="nav-item nav-link" href="/travels/add">Dodaj wycieczkę  </a>
+                <a class="nav-item nav-link" href="/travels">  Lista wycieczek  </a>
+                <a class="nav-item nav-link" href="/booking/add">  Dodaj rezerwację  </a>
+                <a class="nav-item nav-link" href="/bookings">  Lista rezerwacji  </a>
+                <div style="margin-top: 10px"> Witaj, <strong>${pageContext.request.userPrincipal.principal.username}!  </strong></div>
+                <form class="form-inline mt-3" method="post" action="/logout">
+                    <button class="btn btn-outline-primary" type="submit">Wyloguj się</button>
+                    <sec:csrfInput/>
+                </form>
+            </sec:authorize>
+
+            <sec:authorize access="!isAuthenticated()">
+                <form class="form-inline mr-2 mt-3" method="get" action="/login">
+                    <button class="btn btn-outline-primary" type="submit">Zaloguj się</button>
+                    <sec:csrfInput/>
+                </form>
+                <form class="form-inline mt-3" method="get" action="/register">
+                    <button class="btn btn-outline-success" type="submit">Zarejestruj się</button>
+                    <sec:csrfInput/>
+                </form>
+                <%--
+                <strong> <a class="nav-item nav-link" href="/login">Zaaloguj się</a> </strong>
+                <strong> <a class="nav-item nav-link" href="/register">Zarejestruj się</a> </strong>
+                --%>
+            </sec:authorize>
         </div>
     </div>
 </nav>
