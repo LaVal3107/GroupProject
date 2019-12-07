@@ -45,7 +45,7 @@
                     <th>Nazwisko klienta</th>
                     <th>Numer telefonu</th>
                     <th>Adres e-mail</th>
-                    <th>    </th>
+                    <th>Akcje</th>
                 </tr>
                 <c:forEach items="${bookings}" var="booking" varStatus="stat">
                     <tr>
@@ -57,8 +57,9 @@
                         <td>${booking.clientPhoneNumber}</td>
                         <td>${booking.clientEmail}</td>
                         <td>
-                            <form class="form-inline mr-2 mt-3" method="get" action="/deleteBooking">
-                            <button class="btn btn-outline-primary" type="submit"> Usuń </button>
+                            <form class="form-inline mr-2 mt-3" method="get" action="/bookings/delete">
+                                <input type="hidden" name="id" value="${booking.id}">
+                            <button class="btn btn-outline-primary" type="submit">Usuń</button>
                             <sec:csrfInput/>
                         </form></td>
 
